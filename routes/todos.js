@@ -12,8 +12,21 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', jsonBodyParser, (req, res, next) => {
-  console.log(req.body);
-  res.sendStatus(200);
+  Todo.create(req.body)
+    .then(todo => res.status(201).json(todo))
+    .catch(console.error);
+});
+
+router.get('/:id', (req, res, next) => {
+  Todo.findById(req.params.id)
+    .then(todo => res.json(todo))
+    .catch(console.error);
+});
+
+router.put('/:id', jsonBodyParser, (req, res, next) => {
+  Todo.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
+    .then(todo => res.json(todo))
+    .catch(console.error);
 });
 
 module.exports = router;

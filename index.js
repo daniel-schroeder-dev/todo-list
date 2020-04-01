@@ -6,6 +6,7 @@ const todosRoutes = require('./routes/todos');
 
 const app = express();
 
+
 app.use(morgan('dev'));
 app.use('/api/todos', todosRoutes);
 
@@ -15,4 +16,5 @@ app.get('/', (req, res, next) => {
 
 app.listen(3000, () => {
   console.log('Express up at 3000...');
+  console.log('\n\n\n\n\n');
 });
