@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/daniel-schroeder-dev/todo-api/issues"
   },
-  "homepage": "https://github.com/daniel-schroeder-dev/todo-api#readme"
+  "homepage": "https://github.com/daniel-schroeder-dev/todo-api#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
