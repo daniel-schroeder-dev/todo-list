@@ -29,4 +29,10 @@ router.put('/:id', jsonBodyParser, (req, res, next) => {
     .catch(console.error);
 });
 
+router.delete('/:id', (req, res, next) => {
+  Todo.findOneAndRemove(req.params.id)
+    .then(todo => res.json(todo))
+    .catch(console.error);
+});
+
 module.exports = router;
