@@ -23,5 +23,8 @@
   "homepage": "https://github.com/daniel-schroeder-dev/todo-api#readme",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   }
 }
