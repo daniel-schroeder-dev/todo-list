@@ -6,7 +6,6 @@ const todosRoutes = require('./routes/todos');
 
 const app = express();
 
-
 app.use(morgan('dev'));
 app.use('/api/todos', todosRoutes);
 
