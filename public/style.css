@@ -1,0 +1,113 @@
+html {
+  box-sizing: border-box;
+  background-color: #F5F5F5;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+main {
+  margin-top: 12px;
+}
+
+.page-title__container {
+  padding: 32px 64px;
+}
+
+.page-title {
+  font-family: "Lucida Console", "Lucida Sans Typewriter", monaco, "Bitstream Vera Sans Mono", monospace; 
+  font-weight: normal;
+  font-size: 48px;
+  margin: 12px 0;
+  text-align: center;
+}
+
+.page-title__bold {
+  font-weight: bold;
+  text-align: center;
+}
+
+.tag-line {
+  color: #acacac;
+  font-weight: 100;
+  font-size: 20px;
+}
+
+.add-task__input {
+  border: none;
+  border-bottom: 1px solid #acacac;
+  width: 100%;
+  line-height: 1.75;
+  font-size: 28px;
+  background-color: #F5F5F5;
+}
+
+.add-task__input:focus {
+  outline: none;
+}
+
+.task-list {
+  padding-left: 18px;
+  margin-top: 18px;
+}
+
+.task-list__task {
+  padding: 14px;
+  font-size: 20px;
+  cursor: pointer;
+  position: relative;
+}
+
+.task-list__task:hover {
+  background-color: #e0e0e0;
+}
+
+.task-list__task.selected {
+  text-decoration: line-through;
+  color: #acacac;
+}
+
+.task-list__task__link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.task-list__task__remove-icon {
+  position: absolute;
+  right: 0;
+  top: 10px;
+  color: #d74338;
+  font-size: 24px;
+  padding-right: 12px;
+  visibility: hidden;
+}
+
+.task-list__task:hover .task-list__task__remove-icon {
+  visibility: visible;
+}
+
+@media all and (max-width: 800px) {
+  .task-container {
+    padding: 0 24px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
