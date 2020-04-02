@@ -6,11 +6,14 @@ const todosRoutes = require('./routes/todos');
 
 const app = express();
 
+app.set('view engine', 'ejs');
+app.use(express.static('./public'));
+
 app.use(morgan('dev'));
 app.use('/api/todos', todosRoutes);
 
 app.get('/', (req, res, next) => {
-  res.send('Hello from Express!');
+  res.render('index');
 });
 
 app.listen(3000, () => {
