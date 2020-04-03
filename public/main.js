@@ -23,14 +23,16 @@ todoList.addEventListener('click', e => {
 
     const todoElement = e.target.tagName === 'A' ? e.target.parentElement : e.target;
     
-    todoElement.classList.toggle('completed');
-
-    const completed = todoElement.dataset.completed === 'true';
-
-    updateTodoDB({ _id: todoElement.dataset.id, completed });
-
+    toggleCompletedStatus(todoElement)    
+    
   }
 });
+
+function toggleCompletedStatus(todoElement) {
+  todoElement.classList.toggle('completed');
+  const completed = todoElement.dataset.completed === 'true';
+  updateTodoDB({ _id: todoElement.dataset.id, completed });
+}
 
 async function updateTodoDB(todo) {
   
