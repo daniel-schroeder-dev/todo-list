@@ -9,6 +9,14 @@ form.addEventListener('submit', async e => {
   const taskName = addTaskInput.value;
   addTaskInput.value = '';
 
+  await createTaskDB(taskName);
+
+  taskList.append(createTaskDOMElement(taskName));
+
+});
+
+async function createTaskDB(taskName) {
+  
   const response = await fetch('/api/todos', {
     method: 'POST',
     headers: {
@@ -19,9 +27,8 @@ form.addEventListener('submit', async e => {
   
   const task = await response.json();
 
-  taskList.append(createTaskDOMElement(taskName));
-
-});
+  return task;
+}
 
 function createTaskDOMElement(taskName) {
   
