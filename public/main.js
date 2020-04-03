@@ -9,9 +9,9 @@ form.addEventListener('submit', async e => {
   const todoName = addTodoInput.value;
   addTodoInput.value = '';
 
-  await createTodoDB(todoName);
+  const todo = await createTodoDB(todoName);
 
-  todoList.append(createTodoDOMElement(todoName));
+  todoList.append(createTodoDOMElement(todo));
 
 });
 
@@ -64,7 +64,7 @@ async function createTodoDB(todoName) {
   return todo;
 }
 
-function createTodoDOMElement(todoName) {
+function createTodoDOMElement(todo) {
   
   const li = document.createElement('li');
   const todoLink = document.createElement('a');
@@ -78,8 +78,11 @@ function createTodoDOMElement(todoName) {
   removeIcon.href = '#';
   removeIcon.setAttribute('aria-label', 'remove-todo');
 
-  todoLink.textContent = todoName;
+  todoLink.textContent = todo.name;
   removeIcon.innerHTML = '&times;';
+
+  li.dataset.id = todo._id;
+  li.dataset.completed = false;
 
   li.append(todoLink);
   li.append(removeIcon);
