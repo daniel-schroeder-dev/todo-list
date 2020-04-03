@@ -68,10 +68,6 @@ main {
   position: relative;
 }
 
-.todo-list__todo:hover {
-  background-color: #e0e0e0;
-}
-
 .todo-list__todo.completed {
   text-decoration: line-through;
   color: #acacac;
@@ -103,6 +99,11 @@ main {
   }
 }
 
+@media (hover: hover) {
+  .todo-list__todo:hover {
+    background-color: #e0e0e0;
+  }
+}
 
 
 

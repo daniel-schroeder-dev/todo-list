@@ -17,6 +17,8 @@ form.addEventListener('submit', async e => {
 
 todoList.addEventListener('click', e => {
 
+  e.preventDefault();
+
   const todoElement = e.target.tagName === 'A' ? e.target.parentElement : e.target;
 
   if (e.target.classList.contains('todo-list__todo__remove-icon')) {
@@ -74,8 +76,8 @@ function createTodoDOMElement(todo) {
   todoLink.classList.add('todo-list__todo__link');
   removeIcon.classList.add('todo-list__todo__remove-icon');
 
-  todoLink.href = '#';
-  removeIcon.href = '#';
+  todoLink.href = '';
+  removeIcon.href = '';
   removeIcon.setAttribute('aria-label', 'remove-todo');
 
   todoLink.textContent = todo.name;
