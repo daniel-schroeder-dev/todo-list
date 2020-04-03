@@ -13,14 +13,15 @@
       <h1 class="page-title">todo<span class="page-title__bold">list</span></h1>
       <h2 class="tag-line">A simple todo list app built with Node, Express, and Mongo</h2>
     </div>
-    <div class="task-container">
-      <form class="add-task__form">
-        <input class="add-task__input" type="text" name="add-task" placeholder="Insert your task here..." autocomplete="off">
+    <div class="todo-container">
+      <form class="add-todo__form">
+        <input class="add-todo__input" type="text" name="add-todo" placeholder="Insert your todo here..." autocomplete="off">
       </form>
-      <ul class="task-list">
-        <li class="task-list__task selected"><a class="task-list__task__link" href="/">Groceries</a><a aria-label="remove-task" class="task-list__task__remove-icon">&times;</a></li>
-        <li class="task-list__task"><a class="task-list__task__link" href="/">Pug Food</a><a aria-label="remove-task" class="task-list__task__remove-icon">&times;</a></li>
-        <li class="task-list__task"><a class="task-list__task__link" href="/">Bank</a><a aria-label="remove-task" class="task-list__task__remove-icon">&times;</a></li>
+      <ul class="todo-list">
+        <% todos.forEach((todo, i) => { %>
+          <li class="todo-list__todo"><a class="todo-list__todo__link" href="#"><%= todo.name %></a><a href="#" aria-label="remove-todo" class="todo-list__todo__remove-icon">&times;</a></li>
+
+        <% }); %>
       </ul>
     </div>
   </main>

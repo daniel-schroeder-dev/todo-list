@@ -43,7 +43,7 @@ main {
   font-size: 20px;
 }
 
-.add-task__input {
+.add-todo__input {
   border: none;
   border-bottom: 1px solid #acacac;
   width: 100%;
@@ -52,37 +52,37 @@ main {
   background-color: #F5F5F5;
 }
 
-.add-task__input:focus {
+.add-todo__input:focus {
   outline: none;
 }
 
-.task-list {
+.todo-list {
   padding-left: 18px;
   margin-top: 18px;
 }
 
-.task-list__task {
+.todo-list__todo {
   padding: 14px;
   font-size: 20px;
   cursor: pointer;
   position: relative;
 }
 
-.task-list__task:hover {
+.todo-list__todo:hover {
   background-color: #e0e0e0;
 }
 
-.task-list__task.selected {
+.todo-list__todo.selected {
   text-decoration: line-through;
   color: #acacac;
 }
 
-.task-list__task__link {
+.todo-list__todo__link {
   color: inherit;
   text-decoration: none;
 }
 
-.task-list__task__remove-icon {
+.todo-list__todo__remove-icon {
   position: absolute;
   right: 0;
   top: 10px;
@@ -92,12 +92,12 @@ main {
   visibility: hidden;
 }
 
-.task-list__task:hover .task-list__task__remove-icon {
+.todo-list__todo:hover .todo-list__todo__remove-icon {
   visibility: visible;
 }
 
 @media all and (max-width: 800px) {
-  .task-container {
+  .todo-container {
     padding: 0 24px;
   }
 }
