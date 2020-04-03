@@ -72,7 +72,7 @@ main {
   background-color: #e0e0e0;
 }
 
-.todo-list__todo.selected {
+.todo-list__todo.completed {
   text-decoration: line-through;
   color: #acacac;
 }

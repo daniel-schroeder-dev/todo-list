@@ -15,6 +15,21 @@ form.addEventListener('submit', async e => {
 
 });
 
+todoList.addEventListener('click', e => {
+
+  if (e.target.classList.contains('todo-list__todo__remove-icon')) {
+    console.log('remove');
+  } else {
+
+    if (e.target.tagName === 'A') {
+      e.target.parentElement.classList.add('completed');
+    } else {
+      e.target.classList.add('completed');
+    }
+
+  }
+});
+
 async function createTodoDB(todoName) {
   
   const response = await fetch('/api/todos', {
