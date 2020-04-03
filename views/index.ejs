@@ -19,7 +19,7 @@
       </form>
       <ul class="todo-list">
         <% todos.forEach((todo, i) => { %>
-          <li class="todo-list__todo"><a class="todo-list__todo__link" href="#"><%= todo.name %></a><a href="#" aria-label="remove-todo" class="todo-list__todo__remove-icon">&times;</a></li>
+          <li data-id="<%= todo._id  %>" data-completed="<%= todo.completed %>" class="todo-list__todo <%= todo.completed ? 'completed' : '' %>"><a class="todo-list__todo__link" href="#"><%= todo.name %></a><a href="#" aria-label="remove-todo" class="todo-list__todo__remove-icon">&times;</a></li>
 
         <% }); %>
       </ul>

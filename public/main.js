@@ -21,14 +21,31 @@ todoList.addEventListener('click', e => {
     console.log('remove');
   } else {
 
-    if (e.target.tagName === 'A') {
-      e.target.parentElement.classList.add('completed');
-    } else {
-      e.target.classList.add('completed');
-    }
+    const todoElement = e.target.tagName === 'A' ? e.target.parentElement : e.target;
+    
+    todoElement.classList.toggle('completed');
+
+    const completed = todoElement.dataset.completed === 'true';
+
+    updateTodoDB({ _id: todoElement.dataset.id, completed });
 
   }
 });
+
+async function updateTodoDB(todo) {
+  
+  const response = await fetch(`/api/todos/${todo._id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ completed: !todo.completed }),
+  });
+  
+  const updatedTodo = await response.json();
+
+  return updatedTodo;
+}
 
 async function createTodoDB(todoName) {
   
