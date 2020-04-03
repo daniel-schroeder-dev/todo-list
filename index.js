@@ -4,7 +4,7 @@ const express = require('express');
 const morgan = require('morgan');
 const todosRoutes = require('./routes/todos');
 
-const 
+const Todo = require('./models/todo');
 
 const app = express();
 
@@ -15,7 +15,9 @@ app.use(morgan('dev'));
 app.use('/api/todos', todosRoutes);
 
 app.get('/', (req, res, next) => {
-  res.render('index');
+  Todo.find()
+    .then(todos => res.render('index', { todos }))
+    .catch(console.error);
 });
 
 app.listen(3000, () => {
