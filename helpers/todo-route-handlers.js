@@ -25,7 +25,7 @@ exports.putTodo = (req, res, next) => {
 };
 
 exports.deleteTodo = (req, res, next) => {
-  Todo.findOneAndRemove(req.params.id)
+  Todo.findByIdAndRemove(req.params.id)
     .then(todo => res.json(todo))
     .catch(console.error);
 };

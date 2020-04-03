@@ -17,16 +17,31 @@ form.addEventListener('submit', async e => {
 
 todoList.addEventListener('click', e => {
 
-  if (e.target.classList.contains('todo-list__todo__remove-icon')) {
-    console.log('remove');
-  } else {
+  const todoElement = e.target.tagName === 'A' ? e.target.parentElement : e.target;
 
-    const todoElement = e.target.tagName === 'A' ? e.target.parentElement : e.target;
-    
+  if (e.target.classList.contains('todo-list__todo__remove-icon')) {
+    removeTodo(todoElement);
+  } else {
     toggleCompletedStatus(todoElement)    
-    
   }
+
 });
+
+function removeTodo(todoElement) {
+  todoElement.remove();
+  removeTodoDB(todoElement.dataset.id);
+}
+
+async function removeTodoDB(id) {
+  
+  const response = await fetch(`/api/todos/${id}`, {
+    method: 'DELETE',
+  });
+  
+  const deletedTodo = await response.json();
+
+  return deletedTodo;
+}
 
 function toggleCompletedStatus(todoElement) {
   todoElement.classList.toggle('completed');
@@ -47,21 +62,6 @@ async function updateTodoDB(todo) {
   const updatedTodo = await response.json();
 
   return updatedTodo;
-}
-
-async function createTodoDB(todoName) {
-  
-  const response = await fetch('/api/todos', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ name: todoName }),
-  });
-  
-  const todo = await response.json();
-
-  return todo;
 }
 
 function createTodoDOMElement(todo) {
@@ -90,3 +90,17 @@ function createTodoDOMElement(todo) {
   return li;
 }
 
+async function createTodoDB(todoName) {
+  
+  const response = await fetch('/api/todos', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ name: todoName }),
+  });
+  
+  const todo = await response.json();
+
+  return todo;
+}
