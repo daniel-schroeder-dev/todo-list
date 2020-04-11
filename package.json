@@ -4,7 +4,11 @@
   "description": "Simple API for a todo app.",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "dev": "npx nodemon index.js"
+  },
+  "engines": {
+    "node": "13.x"
   },
   "repository": {
     "type": "git",
