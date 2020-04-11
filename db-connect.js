@@ -2,14 +2,13 @@ const mongoose = require('mongoose');
 
 mongoose.set('debug', true);
 
-const url = 'mongodb://127.0.0.1:27017/todo-api';
 const options = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
 };
 
-mongoose.connect(url, options)
+mongoose.connect(process.env.MONGO_DB_URI, options)
   .catch(error => console.error(error));
 
 mongoose.connection.on('error', error => {
