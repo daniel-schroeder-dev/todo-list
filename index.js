@@ -13,6 +13,7 @@ app.set('view engine', 'ejs');
 
 app.use(morgan('dev'));
 app.use(express.static(__dirname + '/public'));
+
 app.use('/api/todos', todosRoutes);
 
 app.get('/', (req, res, next) => {
