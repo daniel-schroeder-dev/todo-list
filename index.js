@@ -12,6 +12,7 @@ const todosRoutes = require('./routes/todos');
 const Todo = require('mongoose').model('Todo');
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
@@ -24,6 +25,6 @@ app.get('/', (req, res, next) => {
     .catch(console.error);
 });
 
-app.listen(process.env.PORT || 3000, () => {
+app.listen(PORT, () => {
   console.log('Express up at: ', PORT);
 });
