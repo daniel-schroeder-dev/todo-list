@@ -22,7 +22,7 @@ app.get('/', (req, res, next) => {
     .catch(console.error);
 });
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log('Express up at 3000...');
   console.log('\n\n\n\n\n');
 });
