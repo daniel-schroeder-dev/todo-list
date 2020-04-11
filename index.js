@@ -1,10 +1,12 @@
-if (process.env.NODE_ENV !== 'production') require('dotenv').config();
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+  app.use(require('morgan')('dev'));
+}
 
 require('./db-connect');
 require('./models/todo');
 
 const express = require('express');
-const morgan = require('morgan');
 const todosRoutes = require('./routes/todos');
 
 const Todo = require('mongoose').model('Todo');
@@ -12,8 +14,6 @@ const Todo = require('mongoose').model('Todo');
 const app = express();
 
 app.set('view engine', 'ejs');
-
-app.use(morgan('dev'));
 app.use(express.static(__dirname + '/public'));
 
 app.use('/api/todos', todosRoutes);
