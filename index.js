@@ -1,10 +1,11 @@
 require('./db-connect');
+require('./models/todo');
 
 const express = require('express');
 const morgan = require('morgan');
 const todosRoutes = require('./routes/todos');
 
-const Todo = require('./models/todo');
+const Todo = require('mongoose').model('Todo');
 
 const app = express();
 

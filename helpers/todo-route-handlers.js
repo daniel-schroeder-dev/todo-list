@@ -1,4 +1,4 @@
-const Todo = require('../models/todo');
+const Todo = require('mongoose').model('Todo');
 
 exports.getTodos = (req, res, next) => {
   Todo.find()
