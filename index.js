@@ -25,6 +25,5 @@ app.get('/', (req, res, next) => {
 });
 
 app.listen(process.env.PORT || 3000, () => {
-  console.log('Express up at 3000...');
-  console.log('\n\n\n\n\n');
+  console.log('Express up at: ', PORT);
 });
