@@ -1,3 +1,6 @@
+const express = require('express');
+const app = express();
+
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
   app.use(require('morgan')('dev'));
@@ -6,12 +9,10 @@ if (process.env.NODE_ENV !== 'production') {
 require('./db-connect');
 require('./models/todo');
 
-const express = require('express');
 const todosRoutes = require('./routes/todos');
 
 const Todo = require('mongoose').model('Todo');
 
-const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.set('view engine', 'ejs');
