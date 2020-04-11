@@ -48,6 +48,7 @@ async function removeTodoDB(id) {
 function toggleCompletedStatus(todoElement) {
   todoElement.classList.toggle('completed');
   const completed = todoElement.dataset.completed === 'true';
+  todoElement.dataset.completed = !completed;
   updateTodoDB({ _id: todoElement.dataset.id, completed });
 }
 
