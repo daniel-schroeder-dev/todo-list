@@ -10,9 +10,9 @@ const Todo = require('mongoose').model('Todo');
 const app = express();
 
 app.set('view engine', 'ejs');
-app.use(express.static('./public'));
 
 app.use(morgan('dev'));
+app.use(express.static(__dirname + '/public'));
 app.use('/api/todos', todosRoutes);
 
 app.get('/', (req, res, next) => {
