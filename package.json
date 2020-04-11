@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "npx nodemon index.js",
-    "deploy": "git push heroku master && git-push"
+    "deploy": "git push heroku master && git push origin master"
   },
   "engines": {
     "node": "13.x"
